@@ -1,7 +1,7 @@
 class Department {
     // private id: string;
     // private name: string;
-    private employees: string[] = [];
+    protected employees: string[] = [];
   
     constructor(private readonly id: string, public name: string) {
       // this.id = id;
@@ -34,7 +34,7 @@ class Department {
     constructor(id: string,private reports: string[]){
       super(id,"Account")
     }
-    addEmployeename(name: string) {
+    addEmployeeName(name: string) {
       if (name ==='Tomate'){
         return
       }
@@ -65,3 +65,4 @@ class Department {
   const account = new AccountingDepartment('d2',[]);
   account.addReport('reportado')
   account.getReports()
+  account.addEmployeeName('ola')
