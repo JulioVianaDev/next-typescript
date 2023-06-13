@@ -34,6 +34,12 @@ class Department {
     constructor(id: string,private reports: string[]){
       super(id,"Account")
     }
+    addEmployeename(name: string) {
+      if (name ==='Tomate'){
+        return
+      }
+      this.employees.push(name)
+    }
     addReport(text:string){
       this.reports.push(text)
     }
