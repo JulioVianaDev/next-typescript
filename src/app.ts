@@ -3,7 +3,7 @@ class Department {
     // private name: string;
     private employees: string[] = [];
   
-    constructor(private id: string, public name: string) {
+    constructor(private readonly id: string, public name: string) {
       // this.id = id;
       // this.name = n;
     }
@@ -23,17 +23,39 @@ class Department {
     }
   }
   
-  const accounting = new Department('d1', 'Accounting');
+  class ItDepartament extends Department{
+    admins: string[];
+    constructor(id:string, admins: string[]){
+      super(id, 'IT') 
+      this.admins = admins
+    }
+  }
+  class AccountingDepartment extends Department{
+    constructor(id: string,private reports: string[]){
+      super(id,"Account")
+    }
+    addReport(text:string){
+      this.reports.push(text)
+    }
+    getReports(){
+      console.log(this.reports)
+    }
+  }
+
+   const it = new ItDepartament('d1', ['tomate']);
   
-  accounting.addEmployee('Tomate');
-  accounting.addEmployee('Manu');
+  it.addEmployee('Tomate');
+  it.addEmployee('Manu');
   
   // accounting.employees[2] = 'Anna';
   
-  accounting.describe();
-  accounting.name = 'Tomatao NAME';
-  accounting.printEmployeeInformation();
-  
+  it.describe();
+  it.name = 'Tomatao NAME';
+  it.printEmployeeInformation();
+  console.log(it)
   // const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
   
   // accountingCopy.describe();
+  const account = new AccountingDepartment('d2',[]);
+  account.addReport('reportado')
+  account.getReports()
