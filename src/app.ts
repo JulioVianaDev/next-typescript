@@ -31,8 +31,11 @@ class Department {
     }
   }
   class AccountingDepartment extends Department{
+    private lastReport:string;
+
     constructor(id: string,private reports: string[]){
       super(id,"Account")
+      this.lastReport = reports[0];
     }
     addEmployeeName(name: string) {
       if (name ==='Tomate'){
